@@ -1,0 +1,18 @@
+# Binaries
+controld
+*.exe
+
+# IDE
+.cursor/
+.idea/
+.vscode/
+
+# Specstory
+.specstory/
+
+# OS
+.DS_Store
+
+# Temp files
+digest.txt
+*.tmp
