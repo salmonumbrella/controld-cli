@@ -5,28 +5,29 @@ const setupTemplate = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ControlD CLI - Connect Account</title>
+    <title>Control D CLI - Connect Account</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0f1a;
-            --bg-card: #111827;
-            --bg-input: #1f2937;
-            --bg-hint: rgba(6, 182, 212, 0.08);
-            --border: #374151;
-            --border-focus: #06b6d4;
+            --bg: #010818;
+            --bg-card: #0a1628;
+            --bg-input: #131f35;
+            --bg-hint: rgba(74, 32, 229, 0.08);
+            --border: #1e3a5f;
+            --border-focus: #4a20e5;
             --text: #f3f4f6;
-            --text-secondary: #9ca3af;
+            --text-secondary: #a78fff;
             --text-muted: #6b7280;
-            --primary: #06b6d4;
-            --primary-light: rgba(6, 182, 212, 0.15);
+            --primary: #4a20e5;
+            --primary-light: rgba(74, 32, 229, 0.15);
+            --accent: #a78fff;
             --success: #10b981;
             --success-light: rgba(16, 185, 129, 0.15);
             --error: #ef4444;
             --error-light: rgba(239, 68, 68, 0.15);
-            --glow: 0 0 20px rgba(6, 182, 212, 0.3);
+            --glow: 0 0 20px rgba(74, 32, 229, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,7 +35,7 @@ const setupTemplate = `<!DOCTYPE html>
         html { height: 100%; }
 
         body {
-            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100%;
@@ -43,8 +44,8 @@ const setupTemplate = `<!DOCTYPE html>
             justify-content: center;
             padding: 2rem 1.5rem;
             background-image:
-                radial-gradient(ellipse at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+                radial-gradient(ellipse at 50% 0%, rgba(74, 32, 229, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(167, 143, 255, 0.06) 0%, transparent 40%);
         }
 
         .container {
@@ -63,7 +64,7 @@ const setupTemplate = `<!DOCTYPE html>
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, #0891b2 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -254,7 +255,7 @@ const setupTemplate = `<!DOCTYPE html>
         input {
             width: 100%;
             padding: 0.625rem 0.875rem;
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.8125rem;
             background: var(--bg-input);
             border: 1.5px solid var(--border);
@@ -344,13 +345,13 @@ const setupTemplate = `<!DOCTYPE html>
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #0891b2 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
             color: white;
-            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 2px 8px rgba(74, 32, 229, 0.3);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 4px 16px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 4px 16px rgba(74, 32, 229, 0.4);
             transform: translateY(-1px);
         }
 
@@ -420,37 +421,49 @@ const setupTemplate = `<!DOCTYPE html>
 
         .github-link {
             position: fixed;
-            bottom: 1rem;
-            right: 1rem;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
+            gap: 0.5rem;
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .github-link:hover {
-            color: var(--text-secondary);
+            color: var(--accent);
         }
 
         .github-icon {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .logo-svg {
+            height: 40px;
+            width: auto;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-            </div>
-            <span class="logo-text">ControlD</span>
+            <svg class="logo-svg" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="36" height="36" rx="8" fill="url(#logo-gradient)"/>
+                <path d="M20 10L12 14V22C12 26.4 15.6 30.4 20 32C24.4 30.4 28 26.4 28 22V14L20 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 20L19 23L25 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="48" y="28" fill="#f3f4f6" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="700">Control D</text>
+                <defs>
+                    <linearGradient id="logo-gradient" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#4a20e5"/>
+                        <stop offset="1" stop-color="#7c3aed"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
 
         <div class="badge-wrapper">
@@ -465,7 +478,7 @@ const setupTemplate = `<!DOCTYPE html>
         </div>
 
         <h1>Connect Your Account</h1>
-        <p class="subtitle">Enter your ControlD API token to get started</p>
+        <p class="subtitle">Enter your Control D API token to get started</p>
 
         <div class="credentials-hint">
             <div class="hint-header">
@@ -483,7 +496,7 @@ const setupTemplate = `<!DOCTYPE html>
                     </svg>
                 </div>
                 <div class="hint-link-text">
-                    <div class="hint-link-title">ControlD Dashboard</div>
+                    <div class="hint-link-title">Control D Dashboard</div>
                     <div class="hint-link-path">Settings &rarr; API</div>
                 </div>
                 <svg class="hint-link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -500,7 +513,7 @@ const setupTemplate = `<!DOCTYPE html>
                         <span class="badge badge-required">Required</span>
                     </div>
                     <input type="text" id="accountName" name="accountName" placeholder="e.g., personal, work" required autofocus>
-                    <div class="input-hint">A local name to identify this account</div>
+                    <div class="input-hint">Name can be anything - it's just a local identifier</div>
                 </div>
 
                 <div class="form-group">
@@ -538,7 +551,7 @@ const setupTemplate = `<!DOCTYPE html>
         <svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
         </svg>
-        ControlD CLI
+        View on GitHub
     </a>
 
     <script>
@@ -679,21 +692,22 @@ const successTemplate = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connected - ControlD CLI</title>
+    <title>Connected - Control D CLI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0f1a;
-            --bg-card: #111827;
-            --bg-terminal: #0d1117;
-            --border: #374151;
+            --bg: #010818;
+            --bg-card: #0a1628;
+            --bg-terminal: #050d1a;
+            --border: #1e3a5f;
             --text: #f3f4f6;
-            --text-secondary: #9ca3af;
+            --text-secondary: #a78fff;
             --text-muted: #6b7280;
-            --primary: #06b6d4;
-            --primary-light: rgba(6, 182, 212, 0.15);
+            --primary: #4a20e5;
+            --primary-light: rgba(74, 32, 229, 0.15);
+            --accent: #a78fff;
             --success: #10b981;
             --success-light: rgba(16, 185, 129, 0.15);
         }
@@ -702,7 +716,7 @@ const successTemplate = `<!DOCTYPE html>
         html { height: 100%; }
 
         body {
-            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100%;
@@ -712,7 +726,7 @@ const successTemplate = `<!DOCTYPE html>
             padding: 2rem 1.5rem;
             background-image:
                 radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 20% 80%, rgba(74, 32, 229, 0.08) 0%, transparent 40%);
         }
 
         .container {
@@ -770,8 +784,8 @@ const successTemplate = `<!DOCTYPE html>
             align-items: center;
             gap: 0.5rem;
             background: var(--primary-light);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            color: var(--primary);
+            border: 1px solid rgba(74, 32, 229, 0.2);
+            color: var(--accent);
             font-size: 0.8125rem;
             font-weight: 600;
             padding: 0.5rem 1rem;
@@ -830,7 +844,7 @@ const successTemplate = `<!DOCTYPE html>
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             margin-bottom: 0.625rem;
             color: #e6edf3;
@@ -891,9 +905,9 @@ const successTemplate = `<!DOCTYPE html>
         }
 
         .message-text code {
-            font-family: 'IBM Plex Mono', monospace;
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(74, 32, 229, 0.15);
+            color: var(--accent);
             padding: 0.125rem 0.375rem;
             border-radius: 4px;
             font-size: 0.6875rem;
@@ -908,26 +922,27 @@ const successTemplate = `<!DOCTYPE html>
 
         .github-link {
             position: fixed;
-            bottom: 1rem;
-            right: 1rem;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
+            gap: 0.5rem;
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 500;
             transition: color 0.2s ease;
             animation: fadeUp 0.5s ease 0.7s both;
         }
 
         .github-link:hover {
-            color: var(--text-secondary);
+            color: var(--accent);
         }
 
         .github-icon {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
         }
     </style>
 </head>
@@ -940,7 +955,7 @@ const successTemplate = `<!DOCTYPE html>
         </div>
 
         <h1>You're all set!</h1>
-        <p class="subtitle">ControlD CLI is now connected and ready</p>
+        <p class="subtitle">Control D CLI is now connected and ready</p>
 
         {{if .AccountName}}
         <div class="account-badge">
@@ -988,7 +1003,7 @@ const successTemplate = `<!DOCTYPE html>
         <svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
         </svg>
-        ControlD CLI
+        View on GitHub
     </a>
 
     <script>fetch('/complete', { method: 'POST', headers: { 'X-CSRF-Token': '{{.CSRFToken}}' } }).catch(() => {});</script>
