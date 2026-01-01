@@ -338,5 +338,4 @@ MIT
 
 ## Links
 
-- [ControlD Website](https://controld.com)
 - [ControlD API Documentation](https://docs.controld.com/reference)
