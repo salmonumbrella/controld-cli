@@ -18,8 +18,7 @@ import (
 	"sync"
 	"time"
 
-	controld "github.com/baptistecdr/controld-go"
-
+	"github.com/salmonumbrella/controld-cli/internal/controld"
 	"github.com/salmonumbrella/controld-cli/internal/secrets"
 )
 

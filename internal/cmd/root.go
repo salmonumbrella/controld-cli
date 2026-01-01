@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	controld "github.com/baptistecdr/controld-go"
 	"github.com/spf13/cobra"
 
 	"github.com/salmonumbrella/controld-cli/internal/api"
 	"github.com/salmonumbrella/controld-cli/internal/config"
+	"github.com/salmonumbrella/controld-cli/internal/controld"
 	"github.com/salmonumbrella/controld-cli/internal/debug"
 	"github.com/salmonumbrella/controld-cli/internal/outfmt"
 	"github.com/salmonumbrella/controld-cli/internal/ui"

@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	controld "github.com/baptistecdr/controld-go"
-
 	"github.com/salmonumbrella/controld-cli/internal/config"
+	"github.com/salmonumbrella/controld-cli/internal/controld"
 	"github.com/salmonumbrella/controld-cli/internal/debug"
 	"github.com/salmonumbrella/controld-cli/internal/secrets"
 )
