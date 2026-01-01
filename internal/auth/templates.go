@@ -444,7 +444,7 @@ const setupTemplate = `<!DOCTYPE html>
         }
 
         .logo-svg {
-            height: 40px;
+            height: 48px;
             width: auto;
         }
     </style>
@@ -452,17 +452,11 @@ const setupTemplate = `<!DOCTYPE html>
 <body>
     <div class="container">
         <div class="logo">
-            <svg class="logo-svg" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="36" height="36" rx="8" fill="url(#logo-gradient)"/>
-                <path d="M20 10L12 14V22C12 26.4 15.6 30.4 20 32C24.4 30.4 28 26.4 28 22V14L20 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 20L19 23L25 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="48" y="28" fill="#f3f4f6" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="700">Control D</text>
-                <defs>
-                    <linearGradient id="logo-gradient" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#4a20e5"/>
-                        <stop offset="1" stop-color="#7c3aed"/>
-                    </linearGradient>
-                </defs>
+            <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" width="42" height="38" viewBox="0 0 42 38" fill="none">
+                <path d="M2.59817 16C1.73199 16 1.03883 15.2655 1.18488 14.4118C2.39502 7.338 8.52232 2 16.2388 2H19.3786C20.0414 2 20.5786 2.53726 20.5786 3.2C20.5786 10.2692 14.8479 16 7.77861 16H2.59817Z" fill="#8B92A2"/>
+                <path d="M2.43556 17.9426C1.56751 17.9398 0.871345 18.6752 1.02014 19.5304C2.25182 26.6097 8.52372 32 16.2388 32H19.3751C20.0398 32 20.5786 31.4612 20.5786 30.7965C20.5786 23.7227 14.856 17.9819 7.78215 17.9595L2.43556 17.9426Z" fill="#8B92A2"/>
+                <path d="M35.3868 18C28.3175 18 22.5868 23.7308 22.5868 30.8C22.5868 31.4627 23.124 32 23.7868 32H26.9273C34.6437 32 40.7705 26.662 41.9805 19.5882C42.1266 18.7345 41.4334 18 40.5672 18H35.3868Z" fill="#8B92A2"/>
+                <path d="M40.5672 16C41.4334 16 42.1266 15.2655 41.9805 14.4118C40.7705 7.338 34.6437 2 26.9273 2H23.7135C23.0444 2 22.5031 2.54462 22.5073 3.21371C22.5513 10.2882 28.2987 16 35.3733 16H40.5672Z" fill="#8B92A2"/>
             </svg>
         </div>
 
@@ -944,10 +938,31 @@ const successTemplate = `<!DOCTYPE html>
             width: 16px;
             height: 16px;
         }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.5s ease 0.1s both;
+        }
+
+        .logo-svg {
+            height: 48px;
+            width: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="logo">
+            <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" width="42" height="38" viewBox="0 0 42 38" fill="none">
+                <path d="M2.59817 16C1.73199 16 1.03883 15.2655 1.18488 14.4118C2.39502 7.338 8.52232 2 16.2388 2H19.3786C20.0414 2 20.5786 2.53726 20.5786 3.2C20.5786 10.2692 14.8479 16 7.77861 16H2.59817Z" fill="#8B92A2"/>
+                <path d="M2.43556 17.9426C1.56751 17.9398 0.871345 18.6752 1.02014 19.5304C2.25182 26.6097 8.52372 32 16.2388 32H19.3751C20.0398 32 20.5786 31.4612 20.5786 30.7965C20.5786 23.7227 14.856 17.9819 7.78215 17.9595L2.43556 17.9426Z" fill="#8B92A2"/>
+                <path d="M35.3868 18C28.3175 18 22.5868 23.7308 22.5868 30.8C22.5868 31.4627 23.124 32 23.7868 32H26.9273C34.6437 32 40.7705 26.662 41.9805 19.5882C42.1266 18.7345 41.4334 18 40.5672 18H35.3868Z" fill="#8B92A2"/>
+                <path d="M40.5672 16C41.4334 16 42.1266 15.2655 41.9805 14.4118C40.7705 7.338 34.6437 2 26.9273 2H23.7135C23.0444 2 22.5031 2.54462 22.5073 3.21371C22.5513 10.2882 28.2987 16 35.3733 16H40.5672Z" fill="#8B92A2"/>
+            </svg>
+        </div>
+
         <div class="success-icon">
             <svg viewBox="0 0 32 32" fill="none">
                 <path d="M8 16L14 22L24 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>

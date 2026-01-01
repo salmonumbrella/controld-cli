@@ -3,6 +3,8 @@ package secrets
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -35,13 +37,48 @@ type KeyringStore struct {
 }
 
 func OpenDefault() (Store, error) {
+	configDir, err := getConfigDir()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get config directory: %w", err)
+	}
+
 	ring, err := keyring.Open(keyring.Config{
 		ServiceName: config.AppName,
+		// FileDir is used when falling back to file-based storage
+		// (e.g., when native keychain is unavailable)
+		FileDir: configDir,
+		// FilePasswordFunc prompts for password when using file-based storage
+		FilePasswordFunc: func(prompt string) (string, error) {
+			// For CLI tools, we use a fixed passphrase derived from the service name
+			// This provides basic obfuscation for the file-based fallback
+			return config.AppName + "-keyring", nil
+		},
 	})
 	if err != nil {
 		return nil, err
 	}
 	return &KeyringStore{ring: ring}, nil
+}
+
+func getConfigDir() (string, error) {
+	// Use XDG_CONFIG_HOME if set, otherwise ~/.config
+	configHome := os.Getenv("XDG_CONFIG_HOME")
+	if configHome == "" {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			return "", err
+		}
+		configHome = filepath.Join(home, ".config")
+	}
+
+	configDir := filepath.Join(configHome, config.AppName)
+
+	// Ensure the directory exists
+	if err := os.MkdirAll(configDir, 0700); err != nil {
+		return "", err
+	}
+
+	return configDir, nil
 }
 
 func (s *KeyringStore) Keys() ([]string, error) {

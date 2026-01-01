@@ -1,4 +1,4 @@
-# 🛡️ Control D CLI - DNS from the terminal. 
+# 🛡️ Control D CLI - DNS in the terminal. 
 
 A powerful command-line interface for managing Control D - filter, devices, profiles, rules, and more.
 
