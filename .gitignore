@@ -1,5 +1,5 @@
 # Binaries
-controld
+/controld
 *.exe
 
 # IDE
@@ -9,6 +9,9 @@ controld
 
 # Specstory
 .specstory/
+
+# Private docs (plans, testing)
+docs/
 
 # OS
 .DS_Store
